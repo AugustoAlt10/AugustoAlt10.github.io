@@ -16,8 +16,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 3px; text-decoration: none; }
 body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .58; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 26px 26px; }
 
-.profile-shell { width: min(100%, 680px); margin: 0 auto; padding: 34px 22px 40px; }
-.profile-card { position: relative; padding: 0 16px 30px; overflow: hidden; }
+.profile-shell { width: min(100%, 680px); margin: 0 auto; padding: 34px 22px 12px; }
+.profile-card { position: relative; padding: 0 16px; overflow: hidden; }
 .hero { position: relative; z-index: 1; padding: 0 22px; }
 .hero-frame { position: relative; width: min(26vw, 110px); height: min(26vw, 110px); margin: 0 auto; overflow: visible; border: 3px solid var(--ink); border-radius: 50%; background: var(--paper); box-shadow: 4px 5px 0 rgba(23, 24, 21, .13); will-change: transform; animation: portrait-float 4.8s ease-in-out infinite; }
 .hero-frame::after { display: none; }
