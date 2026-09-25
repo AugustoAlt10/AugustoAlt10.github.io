@@ -9,9 +9,11 @@
   --line: rgba(34, 39, 21, .13);
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
 html { min-width: 320px; }
 body { margin: 0; color: var(--ink); background: var(--olive); font-family: "Manrope", sans-serif; }
+a, button { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 3px; text-decoration: none; }
 body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .58; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 26px 26px; animation: grid-drift 18s linear infinite; }
 
 .profile-shell { width: min(100%, 680px); margin: 0 auto; padding: 34px 22px 40px; }
