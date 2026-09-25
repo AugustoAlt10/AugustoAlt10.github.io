@@ -1,6 +1,5 @@
 const profileConfig = {
   name: 'AUGUSTO OLIVEIRA',
-  role: 'Criador de Conteúdo, Dev & Gamer',
   avatar: '598807799_2631767033849203_692147827125972732_n.webp',
   audience: {
     youtubeSubscribers: 11800,
@@ -36,7 +35,46 @@ document.querySelectorAll('[data-social]').forEach((social) => {
   if (key && profileConfig.socialLinks[key]) social.href = profileConfig.socialLinks[key];
 });
 
-document.querySelectorAll('[data-link]').forEach((link) => {
+document.querySelectorAll('a[data-link]').forEach((link) => {
   const key = link.dataset.link;
   if (key && profileConfig.links[key]) link.href = profileConfig.links[key];
 });
+
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch {}
+  }
+
+  const temporaryInput = document.createElement('textarea');
+  temporaryInput.value = text;
+  temporaryInput.setAttribute('readonly', '');
+  temporaryInput.style.cssText = 'position:fixed;opacity:0;user-select:text;-webkit-user-select:text;';
+  document.body.append(temporaryInput);
+  temporaryInput.select();
+  const copied = document.execCommand('copy');
+  temporaryInput.remove();
+  if (!copied) throw new Error('Não foi possível copiar o texto.');
+}
+
+const emailCopyButton = document.querySelector('[data-copy-email]');
+if (emailCopyButton) {
+  const email = profileConfig.links.email.replace(/^mailto:/, '');
+  const emailFeedback = emailCopyButton.querySelector('[data-copy-feedback]');
+  let feedbackTimeout;
+
+  emailCopyButton.addEventListener('click', async () => {
+    clearTimeout(feedbackTimeout);
+    try {
+      await copyText(email);
+      emailFeedback.textContent = 'E-mail copiado!';
+    } catch {
+      emailFeedback.textContent = 'Não foi possível copiar';
+    }
+    feedbackTimeout = setTimeout(() => {
+      emailFeedback.textContent = email;
+    }, 2200);
+  });
+}
