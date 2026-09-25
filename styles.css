@@ -14,14 +14,14 @@ html { min-width: 320px; }
 body { margin: 0; color: var(--ink); background: var(--olive); font-family: "Manrope", sans-serif; }
 a, button { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 3px; text-decoration: none; }
-body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .58; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 26px 26px; animation: grid-drift 18s linear infinite; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .58; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 26px 26px; }
 
 .profile-shell { width: min(100%, 680px); margin: 0 auto; padding: 34px 22px 40px; }
 .profile-card { position: relative; padding: 0 16px 30px; overflow: hidden; }
 .hero { position: relative; z-index: 1; padding: 0 22px; }
-.hero-frame { position: relative; width: min(26vw, 110px); height: min(26vw, 110px); margin: 0 auto; overflow: visible; border: 3px solid var(--ink); border-radius: 50%; background: var(--paper); box-shadow: 4px 5px 0 rgba(23, 24, 21, .13); animation: portrait-float 4.8s ease-in-out infinite; }
+.hero-frame { position: relative; width: min(26vw, 110px); height: min(26vw, 110px); margin: 0 auto; overflow: visible; border: 3px solid var(--ink); border-radius: 50%; background: var(--paper); box-shadow: 4px 5px 0 rgba(23, 24, 21, .13); will-change: transform; animation: portrait-float 4.8s ease-in-out infinite; }
 .hero-frame::after { display: none; }
-.hero img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center center; border-radius: 50%; filter: saturate(.83) contrast(.96); transform-origin: center center; transform: rotate(90deg) scale(1.05); animation: portrait-breathe 6s ease-in-out infinite; }
+.hero img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center center; border-radius: 50%; filter: saturate(.9) contrast(.98); transform-origin: center center; transform: rotate(90deg) scale(1.05); }
 .hero-frame::before { content: ""; position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: linear-gradient(180deg, transparent 58%, rgba(34, 37, 18, .24)); pointer-events: none; }
 .frame-label { position: absolute; z-index: 2; left: 18px; bottom: 16px; color: var(--paper); font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .1em; text-shadow: 0 1px 4px #252714; }
 .frame-label span { margin: 0 5px; color: #efd48a; font-size: 13px; }
@@ -45,7 +45,7 @@ h1 { margin: 10px 0 2px; font-family: "League Gothic", Impact, sans-serif; font-
 .followers { font: 500 11px "DM Mono", monospace; animation: content-in .7s .5s ease-out both; }.followers small { font: 9px "Manrope", sans-serif; opacity: .62; }
 
 .links-list { position: relative; z-index: 2; display: grid; gap: 12px; }
-.link-tile { position: relative; isolation: isolate; display: grid; grid-template-columns: 42px 1fr 36px; align-items: center; min-height: 70px; padding: 9px 14px 9px 12px; color: var(--ink); background: rgba(248, 244, 233, .97); border: 2px solid var(--ink); border-radius: 38px; box-shadow: 4px 5px 0 rgba(23, 24, 21, .18); text-decoration: none; transition: transform .22s ease, box-shadow .22s ease, background .22s ease; animation: tile-in .65s cubic-bezier(.2,.8,.2,1) both; }
+.link-tile { position: relative; isolation: isolate; display: grid; grid-template-columns: 42px 1fr 36px; align-items: center; min-height: 70px; padding: 9px 14px 9px 12px; color: var(--ink); background: rgba(248, 244, 233, .97); border: 2px solid var(--ink); border-radius: 38px; box-shadow: 4px 5px 0 rgba(23, 24, 21, .18); text-decoration: none; will-change: transform; transition: transform .22s ease, box-shadow .22s ease, background .22s ease; animation: tile-in .65s cubic-bezier(.2,.8,.2,1) both; }
 .link-tile::after { content: ""; position: absolute; z-index: -1; inset: -2px; border-radius: inherit; background: linear-gradient(105deg, transparent 25%, rgba(255, 255, 255, .72) 48%, transparent 68%); background-size: 220% 100%; opacity: 0; transition: opacity .22s ease; }
 .link-tile:hover { transform: translateY(-5px) scale(1.018); box-shadow: 6px 10px 0 rgba(23, 24, 21, .18); background: #fffdf7; }.link-tile:hover::after { opacity: 1; animation: tile-shine .8s ease forwards; }.link-tile:active { transform: translateY(1px) scale(.98); box-shadow: 2px 2px 0 rgba(23, 24, 21, .2); }
 .link-tile:nth-child(1) { animation-delay: .38s; }.link-tile:nth-child(2) { animation-delay: .48s; }.link-tile:nth-child(3) { animation-delay: .58s; }.link-tile:nth-child(4) { animation-delay: .68s; }.link-tile:nth-child(5) { animation-delay: .78s; }
@@ -56,9 +56,7 @@ h1 { margin: 10px 0 2px; font-family: "League Gothic", Impact, sans-serif; font-
 .top-ornament { position: absolute; z-index: 3; width: 55px; height: 55px; border: 2px solid var(--ink); border-radius: 50%; background: var(--rose); transform: rotate(10deg); }.top-ornament::after, .top-ornament::before { content: ""; position: absolute; width: 27px; height: 27px; border: 2px solid var(--ink); border-radius: 60% 40% 60% 40%; background: #eeadb7; }.top-ornament::before { top: -13px; left: 8px; }.top-ornament::after { bottom: -10px; right: -8px; }.top-ornament span { position: absolute; inset: 17px; border: 2px solid var(--ink); border-radius: 50%; background: #e5c35f; }.ornament-left { top: -17px; left: -13px; }.ornament-right { top: 91px; right: -17px; transform: scale(.66) rotate(-23deg); }
 
 @media (min-width: 700px) { .profile-shell { padding-top: 58px; }.profile-card { padding-inline: 32px; }.hero { padding-inline: 38px; } }
-@keyframes grid-drift { from { background-position: 0 0, 0 0; } to { background-position: 26px 26px, 26px 26px; } }
 @keyframes portrait-float { 0%, 100% { transform: rotate(-1deg); box-shadow: 4px 5px 0 rgba(23, 24, 21, .13); } 50% { transform: rotate(1deg); box-shadow: 6px 8px 0 rgba(23, 24, 21, .2); } }
-@keyframes portrait-breathe { 0%, 100% { filter: saturate(.83) contrast(.96); } 50% { filter: saturate(1) contrast(1.02); } }
 @keyframes title-in { from { opacity: 0; transform: translateY(14px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes content-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes social-pop { from { opacity: 0; transform: translateY(8px) scale(.7); } to { opacity: 1; transform: translateY(0) scale(1); } }
