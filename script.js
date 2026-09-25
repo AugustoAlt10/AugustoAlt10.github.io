@@ -21,7 +21,7 @@ const profileConfig = {
   }
 };
 
-document.title = `${profileConfig.name} | Creator page`;
+document.title = `${profileConfig.name} | Criador de Conteúdo e Desenvolvedor`;
 const profileImage = document.querySelector('#profile-image');
 if (profileImage) profileImage.src = profileConfig.avatar;
 
