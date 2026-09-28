@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="3840" viewBox="0 0 2160 3840">
+  <title>Fundo verde oliva quadriculado</title>
+  <desc>Fundo verde oliva com grade sutil escura em quadrados regulares.</desc>
+  <defs>
+    <pattern id="grid" width="78" height="78" patternUnits="userSpaceOnUse">
+      <path d="M 78 0 L 0 0 0 78" fill="none" stroke="#222715" stroke-opacity="0.13" stroke-width="3" />
+    </pattern>
+  </defs>
+  <rect width="2160" height="3840" fill="#b7bb89" />
+  <rect width="2160" height="3840" fill="url(#grid)" />
+</svg>

@@ -16,6 +16,7 @@ const profileConfig = {
     youtube: 'https://www.youtube.com/@AugustoAlt10',
     tiktok: 'https://www.tiktok.com/@augustoalt10',
     discord: 'https://discord.gg/Pbs59T8HF9',
+    livepix: 'https://livepix.gg/augustoalt10',
     email: 'mailto:augustoaltcontato@gmail.com'
   }
 };
